@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridBox{
+    margin: -1px;
+}
+
+#container{
+    height: 70vh;
+    width: 70vh;
+    background-color: pink;
+    display: flex;
+    flex-wrap:wrap;
+
+}
