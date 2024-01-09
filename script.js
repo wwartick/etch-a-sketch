@@ -8,9 +8,22 @@ fancy stuff AFTER black/white works at LEAST
 
 const mainContainer = document.querySelector('#container');
 const gridHolder = document.createElement('div');
-const colorBtns = document.querySelectorAll('button');
+var slider = document.getElementById('slider');
+var output=document.getElementById('sliderValue');
+output.innerHTML=slider.value;
+let gridSize = 16;
 gridHolder.id='container';
 let color = 'black';
+
+slider.oninput=function(){
+    output.innerHTML=this.value;
+    gridSize = this.value;
+    while (gridHolder.firstChild){
+        gridHolder.removeChild(gridHolder.firstChild);
+    }
+    createGrid(gridSize);
+
+}
 
 //runs a function so that each time a user enters a new box 
 //each box is a different random color
@@ -66,5 +79,5 @@ const createGrid = function(length) {
     mainContainer.appendChild(gridHolder);
 }
 
+createGrid(gridSize);
 //accessGridBoxes()
-createGrid(4);
