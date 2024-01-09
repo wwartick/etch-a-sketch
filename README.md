@@ -1,2 +1,3 @@
 # etch-a-sketch
-etch a sketchee hee
+etch a sketch app using HTML, CSS and Javascript
+
