@@ -8,20 +8,24 @@ fancy stuff AFTER black/white works at LEAST
 
 const mainContainer = document.querySelector('#container');
 const gridHolder = document.createElement('div');
+const colorBtns = document.querySelectorAll('button');
 gridHolder.id='container';
-let color;
+let color = 'black';
 
 //random number generator
 
-function colorPicker(){
+const rainbowRoad = function(){
     let x= Math.floor(Math.random() * 256);
     let y= Math.floor(Math.random() * 256);
     let z= Math.floor(Math.random() * 256);
     let rainbow = `rgba(${x},${y},${z})`;
-    color=rainbow;
-    return color;
+    return rainbow;
 }
 
+const colorPicker = function(colorChoice){
+    color = colorChoice;
+    return color;
+}
 
 
 //creates grid with length/width depending on the users choice
@@ -41,17 +45,18 @@ const createGrid = function(length) {
         //changes color when moused over
         gridDiv.onmouseenter=function(){
             const currentGrid = document.getElementById(this.id);
-                if(currentGrid.style.backgroundColor=='white'){
-                currentGrid.style.backgroundColor=colorPicker();
-                }
-            }  
+            if(color=='rainbow'){
+            currentGrid.style.backgroundColor=rainbowRoad();
+            } else {
+            currentGrid.style.backgroundColor='black';  
+            }
+        }  
+
         gridHolder.appendChild(gridDiv);
     }
 
     mainContainer.appendChild(gridHolder);
 }
-
-
 
 //accessGridBoxes()
 createGrid(25);
