@@ -12,8 +12,8 @@ const colorBtns = document.querySelectorAll('button');
 gridHolder.id='container';
 let color = 'black';
 
-//random number generator
-
+//runs a function so that each time a user enters a new box 
+//each box is a different random color
 const rainbowRoad = function(){
     let x= Math.floor(Math.random() * 256);
     let y= Math.floor(Math.random() * 256);
@@ -22,9 +22,18 @@ const rainbowRoad = function(){
     return rainbow;
 }
 
+//sets the color for what the board will be
 const colorPicker = function(colorChoice){
     color = colorChoice;
     return color;
+}
+
+//clears the board when the user decides to
+const clearBoard = function() {
+    const clearDivs = document.querySelectorAll('.gridBox');
+     clearDivs.forEach(div =>{
+        div.style.backgroundColor='white';
+     })
 }
 
 
@@ -54,9 +63,8 @@ const createGrid = function(length) {
 
         gridHolder.appendChild(gridDiv);
     }
-
     mainContainer.appendChild(gridHolder);
 }
 
 //accessGridBoxes()
-createGrid(25);
+createGrid(4);
