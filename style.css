@@ -7,13 +7,13 @@ body{
 
 .gridBox{
     margin: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.37);
 }
 
 #container{
     height: 70vh;
     width: 70vh;
-    background-color: pink;
     display: flex;
     flex-wrap:wrap;
-
+    color:  rgba(255, 255, 255)
 }

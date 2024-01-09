@@ -9,11 +9,20 @@ fancy stuff AFTER black/white works at LEAST
 const mainContainer = document.querySelector('#container');
 const gridHolder = document.createElement('div');
 gridHolder.id='container';
+let color;
 
-const changeColor = function(id) {
-  const currentGrid = document.getElementById(id);
-  currentGrid.style.backgroundColor='white';
+//random number generator
+
+function colorPicker(){
+    let x= Math.floor(Math.random() * 256);
+    let y= Math.floor(Math.random() * 256);
+    let z= Math.floor(Math.random() * 256);
+    let rainbow = `rgba(${x},${y},${z})`;
+    color=rainbow;
+    return color;
 }
+
+
 
 //creates grid with length/width depending on the users choice
 const createGrid = function(length) {
@@ -21,25 +30,28 @@ const createGrid = function(length) {
     for(i=0; i<(length*length); i++) {
         //variable to get the needed length/width of the created divs'
         let gridLength = 70 / length;
-    const gridDiv = document.createElement('div');
-    //gives each created div a unique id
-    gridDiv.id= "r" + i;
-    gridDiv.className='gridBox';
-    //div styling
-    gridDiv.style.border='1px solid black'
-    gridDiv.style.height=gridLength+'vh';
-    gridDiv.style.width=gridLength+'vh';
-    gridDiv.onmouseenter=function(){changeColor(this.id);}
-    gridHolder.appendChild(gridDiv);
+        const gridDiv = document.createElement('div');
+        //gives each created div a unique id
+        gridDiv.id= "r" + i;
+        gridDiv.className='gridBox';
+        //dynamic length/width depending on users decision
+        gridDiv.style.height=gridLength+'vh';
+        gridDiv.style.width=gridLength+'vh';
+        gridDiv.style.backgroundColor='white';
+        //changes color when moused over
+        gridDiv.onmouseenter=function(){
+            const currentGrid = document.getElementById(this.id);
+                if(currentGrid.style.backgroundColor=='white'){
+                currentGrid.style.backgroundColor=colorPicker();
+                }
+            }  
+        gridHolder.appendChild(gridDiv);
     }
+
     mainContainer.appendChild(gridHolder);
 }
 
-/* function accessGridBoxes() {
-    const gridBoxes = gridHolder.getElementsByClassName('gridBox');
 
-    console.log(gridBoxes);
-} */
 
 //accessGridBoxes()
-createGrid(50);
+createGrid(25);
