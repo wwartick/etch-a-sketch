@@ -10,6 +10,11 @@ const mainContainer = document.querySelector('#container');
 const gridHolder = document.createElement('div');
 gridHolder.id='container';
 
+const changeColor = function(id) {
+  const currentGrid = document.getElementById(id);
+  currentGrid.style.backgroundColor='white';
+}
+
 //creates grid with length/width depending on the users choice
 const createGrid = function(length) {
     //loop to create the many divs needed
@@ -24,9 +29,17 @@ const createGrid = function(length) {
     gridDiv.style.border='1px solid black'
     gridDiv.style.height=gridLength+'vh';
     gridDiv.style.width=gridLength+'vh';
+    gridDiv.onmouseenter=function(){changeColor(this.id);}
     gridHolder.appendChild(gridDiv);
     }
     mainContainer.appendChild(gridHolder);
 }
 
-createGrid(10);
+/* function accessGridBoxes() {
+    const gridBoxes = gridHolder.getElementsByClassName('gridBox');
+
+    console.log(gridBoxes);
+} */
+
+//accessGridBoxes()
+createGrid(50);
