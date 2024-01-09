@@ -1,11 +1,3 @@
-/*
-NEEDS
-start with 16x16
-each box is it's own seperate div (loops?)
-event listener AFTER div generation
-fancy stuff AFTER black/white works at LEAST
-*/
-
 const mainContainer = document.querySelector('#container');
 const gridHolder = document.createElement('div');
 var slider = document.getElementById('slider');
@@ -15,6 +7,9 @@ let gridSize = 16;
 gridHolder.id='container';
 let color = 'black';
 
+//takes the users slider input and adjusts the grid size to it
+//also deletes the previous grid and creates a new one immediately
+//to reflect the new grid size.
 slider.oninput=function(){
     output.innerHTML=this.value;
     gridSize = this.value;
@@ -45,7 +40,7 @@ const colorPicker = function(colorChoice){
 const clearBoard = function() {
     const clearDivs = document.querySelectorAll('.gridBox');
      clearDivs.forEach(div =>{
-        div.style.backgroundColor='white';
+        div.style.backgroundColor='#EAD196';
      })
 }
 
@@ -63,7 +58,7 @@ const createGrid = function(length) {
         //dynamic length/width depending on users decision
         gridDiv.style.height=gridLength+'vh';
         gridDiv.style.width=gridLength+'vh';
-        gridDiv.style.backgroundColor='white';
+        gridDiv.style.backgroundColor='#EAD196';
         //changes color when moused over
         gridDiv.onmouseenter=function(){
             const currentGrid = document.getElementById(this.id);
@@ -75,6 +70,7 @@ const createGrid = function(length) {
         }  
 
         gridHolder.appendChild(gridDiv);
+        gridHolder.className='gridHolder';
     }
     mainContainer.appendChild(gridHolder);
 }

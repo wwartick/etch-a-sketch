@@ -15,21 +15,24 @@
     header and footer probably necessary in every project    -->
 
 <body>
-    <div class="header"></div>
+    <div class="header"> etch-a-sketch</div>
 
     <div class="main">
         <div class = 'optionsContainer'>
+            <span>change square color with these buttons</span>
             <button class="colorChangeBtn" id="rainbow" onclick="colorPicker(this.id)">rainbow</button>
             <button class ="colorChangeBtn" id="black" onclick="colorPicker(this.id)">black</button>
-            <button class="colorChangeBtn" onclick='clearBoard()'>clear</button>
-            <input type="range" min="2" max="50" value="16" class="slider" id="slider">
-            <p id="sliderValue">16</p>
-        </div> 
- 
+            <button onclick='clearBoard()'>clear</button>
+        <div class="sliderContainer">
+            <span>edit grid size with this slider</span>
+            <input type="range" min="1" max="64" value="32" class="slider" id="slider">
+            <span id="sliderValue">16</span>
+        </div>
+     </div> 
         <div id="container"></div>
 
     </div>
-    <div class="footer"></div>
+    <div class="footer">created by william wartick 2024</div>
 
 
 </body>

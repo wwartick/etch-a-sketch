@@ -1,13 +1,15 @@
 body{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  min-height: 100vh;
+    margin:0;
+    padding: 0;
 }
+
 
 .gridBox{
     margin: -1px;
-    border: 1px solid rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(0, 0, 0, 0.075);
 }
 
 #container{
@@ -15,26 +17,85 @@ body{
     width: 70vh;
     display: flex;
     flex-wrap:wrap;
-    color:  rgba(255, 255, 255);
+    color:  #EAD196;
 }
 
 .main{
+    flex:1;
     display: flex;
     flex-direction: row;
+    background-color: #BF3131;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:100%;
 
 }
 
 .optionsContainer{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-right:100px;
-    
+    align-items: center;
+    margin-right:50px;
+    padding: 0;
 }
 
-.colorChangeBtn{
-    margin: 25px 30px;
+.header{
+    background-color: #7D0A0A;
+    color: yellow;
+    width: 100%;
+    height: 75px;
+    font-size:48px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+.gridHolder{
+    align-self: center;
+    justify-self: center;
+}
+
+.footer{
+    background-color:  #EAD196;
+    color: #7D0A0A;
+    margin-top:auto;
+    padding:10px;
+    text-align: center;
+}
+
+.sliderContainer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+span{
+    color: yellow;
+    font-style: italic;
+    font-size: 20px;
+}
+
+button{
+    color: #7D0A0A;
+    background-color: #EAD196;
+    border-radius: 10px;
+    border: 1px solid #7D0A0A;
+    margin: 10px 0;
     width: 10vh;
     height: 3vh;
 }
+
+button:hover{
+    transform: scale(1.2);
+}
+
+.colorChangeBtn:focus {
+    background: #e5e5e5;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+  }
